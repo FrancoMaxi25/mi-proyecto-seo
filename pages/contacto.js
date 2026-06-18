@@ -1,6 +1,36 @@
 import Head from "next/head";
 import Link from "next/link";
 
+const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
+
+// Esta función intercepta la petición. Si Google la pide como sitemap, le manda XML.
+export async function getServerSideProps({ req, res }) {
+  const userAgent = req.headers["user-agent"] || "";
+  const urlPath = req.url || "";
+
+  // Si Google Search Console solicita la URL en el apartado de sitemaps
+  // o si el agente de rastreo contiene "Googlebot" o acepta XML
+  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot") || req.headers["accept"]?.includes("xml")) {
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${BASE_URL}/contacto</loc>
+  </url>
+</urlset>`;
+
+    res.setHeader("Content-Type", "text/xml");
+    res.write(sitemap);
+    res.end();
+
+    return { props: {} };
+  }
+
+  // Si entra un usuario común desde el navegador, continúa normal y renderiza el HTML de abajo
+  return {
+    props: {},
+  };
+}
+
 export default function Contacto() {
   return (
     <>
