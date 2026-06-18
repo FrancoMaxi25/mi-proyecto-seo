@@ -1,4 +1,4 @@
-const BASE_URL = "https://mi-sitio.com";
+const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
 
 export default async function handler(req, res) {
   // Simulación avanzada de colección de posts inyectados dinámicamente desde un CMS
