@@ -3,12 +3,11 @@ import Link from "next/link";
 
 const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
 
-// Intercepta la petición: si la pide Google como sitemap, devuelve XML estructurado
 export async function getServerSideProps({ req, res }) {
   const userAgent = req.headers["user-agent"] || "";
   const urlPath = req.url || "";
 
-  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot") || req.headers["accept"]?.includes("xml")) {
+  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot")) {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -23,9 +22,7 @@ export async function getServerSideProps({ req, res }) {
     return { props: {} };
   }
 
-  return {
-    props: {},
-  };
+  return { props: {} };
 }
 
 export default function Blog() {
@@ -41,7 +38,7 @@ export default function Blog() {
         <title>Artículos Técnicos Avanzados | Blog de Optimización</title>
         <meta name="description" content="Explora artículos especializados escritos por desarrolladores sobre optimización de plataformas web." />
         
-        {/* Etiquetas Open Graph exigidas por el profesor */}
+        {/* Etiquetas Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Artículos Técnicos Avanzados | Blog de Optimización" />
         <meta property="og:description" content="Explora artículos especializados escritos por desarrolladores sobre optimización de plataformas web." />

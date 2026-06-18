@@ -5,12 +5,12 @@ import Link from "next/link";
 
 const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
 
-// Intercepta la petición para responder con XML si Google la pide desde el panel de Sitemaps
 export async function getServerSideProps({ req, res }) {
   const userAgent = req.headers["user-agent"] || "";
   const urlPath = req.url || "";
 
-  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot") || req.headers["accept"]?.includes("xml")) {
+  // Solo intercepta si se pide explícitamente la palabra sitemap o viene el bot oficial de Google
+  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot")) {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -25,9 +25,7 @@ export async function getServerSideProps({ req, res }) {
     return { props: {} };
   }
 
-  return {
-    props: {},
-  };
+  return { props: {} };
 }
 
 const DynamicComponent = dynamic(() => import("../components/LargeComponent"), { 
@@ -39,18 +37,18 @@ export default function Home() {
   return (
     <>
       <Head>
-      <title>Plataforma de Optimización Avanzada | Core Web Vitals</title>
-      <meta name="description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
-      <meta name="keywords" content="Next.js, Arquitectura, SEO, Web Vitals, WebP" />
-      <meta name="google-site-verification" content="qGx7GLEI7RJRIMGEYu60C7nDVTYac2GHVPo4vfUQZ1Q" />
-      
-      {/* Etiquetas Open Graph exigidas por el profesor */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Plataforma de Optimización Avanzada | Core Web Vitals" />
-      <meta property="og:description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
-      <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/" />
-      <meta property="og:image" content="https://mi-proyecto-seo-maxi.onrender.com/images/seo-image.png" />
-    </Head>
+        <title>Plataforma de Optimización Avanzada | Core Web Vitals</title>
+        <meta name="description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
+        <meta name="keywords" content="Next.js, Arquitectura, SEO, Web Vitals, WebP" />
+        <meta name="google-site-verification" content="qGx7GLEI7RJRIMGEYu60C7nDVTYac2GHVPo4vfUQZ1Q" />
+        
+        {/* Etiquetas Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Plataforma de Optimización Avanzada | Core Web Vitals" />
+        <meta property="og:description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
+        <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/" />
+        <meta property="og:image" content="https://mi-proyecto-seo-maxi.onrender.com/images/seo-image.png" />
+      </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <nav className="navbar">

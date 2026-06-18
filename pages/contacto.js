@@ -3,14 +3,11 @@ import Link from "next/link";
 
 const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
 
-// Esta función intercepta la petición. Si Google la pide como sitemap, le manda XML.
 export async function getServerSideProps({ req, res }) {
   const userAgent = req.headers["user-agent"] || "";
   const urlPath = req.url || "";
 
-  // Si Google Search Console solicita la URL en el apartado de sitemaps
-  // o si el agente de rastreo contiene "Googlebot" o acepta XML
-  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot") || req.headers["accept"]?.includes("xml")) {
+  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot")) {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -25,25 +22,22 @@ export async function getServerSideProps({ req, res }) {
     return { props: {} };
   }
 
-  // Si entra un usuario común desde el navegador, continúa normal y renderiza el HTML de abajo
-  return {
-    props: {},
-  };
+  return { props: {} };
 }
 
 export default function Contacto() {
   return (
     <>
       <Head>
-      <title>Consultoría Técnica y Auditorías SEO | Contáctanos</title>
-      <meta name="description" content="Solicita una auditoría de software para analizar cuellos de botella." />
-      
-      {/* Etiquetas Open Graph exigidas por el profesor */}
-      <meta property="og:type" content="profile" />
-      <meta property="og:title" content="Consultoría Técnica y Auditorías SEO | Contáctanos" />
-      <meta property="og:description" content="Solicita una auditoría de software para analizar cuellos de botella." />
-      <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/contacto" />
-    </Head>
+        <title>Consultoría Técnica y Auditorías SEO | Contáctanos</title>
+        <meta name="description" content="Solicita una auditoría de software para analizar cuellos de botella." />
+        
+        {/* Etiquetas Open Graph */}
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content="Consultoría Técnica y Auditorías SEO | Contáctanos" />
+        <meta property="og:description" content="Solicita una auditoría de software para analizar cuellos de botella." />
+        <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/contacto" />
+      </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <nav className="navbar">
