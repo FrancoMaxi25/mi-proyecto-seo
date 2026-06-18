@@ -15,6 +15,7 @@ export default function Home() {
         <title>Plataforma de Optimización Avanzada | Core Web Vitals</title>
         <meta name="description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
         <meta name="keywords" content="Next.js, Arquitectura, SEO, Web Vitals, WebP" />
+        <meta name="google-site-verification" content="qGx7GLEI7RJRIMGEYu60C7nDVTYac2GHVPo4vfUQZ1Q" />
       </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
