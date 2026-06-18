@@ -40,6 +40,12 @@ export default function Blog() {
       <Head>
         <title>Artículos Técnicos Avanzados | Blog de Optimización</title>
         <meta name="description" content="Explora artículos especializados escritos por desarrolladores sobre optimización de plataformas web." />
+        
+        {/* Etiquetas Open Graph exigidas por el profesor */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Artículos Técnicos Avanzados | Blog de Optimización" />
+        <meta property="og:description" content="Explora artículos especializados escritos por desarrolladores sobre optimización de plataformas web." />
+        <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/blog" />
       </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

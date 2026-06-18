@@ -35,9 +35,15 @@ export default function Contacto() {
   return (
     <>
       <Head>
-        <title>Consultoría Técnica y Auditorías SEO | Contáctanos</title>
-        <meta name="description" content="Solicita una auditoría de software para analizar cuellos de botella." />
-      </Head>
+      <title>Consultoría Técnica y Auditorías SEO | Contáctanos</title>
+      <meta name="description" content="Solicita una auditoría de software para analizar cuellos de botella." />
+      
+      {/* Etiquetas Open Graph exigidas por el profesor */}
+      <meta property="og:type" content="profile" />
+      <meta property="og:title" content="Consultoría Técnica y Auditorías SEO | Contáctanos" />
+      <meta property="og:description" content="Solicita una auditoría de software para analizar cuellos de botella." />
+      <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/contacto" />
+    </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <nav className="navbar">

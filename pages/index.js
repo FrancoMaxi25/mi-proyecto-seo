@@ -39,11 +39,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Plataforma de Optimización Avanzada | Core Web Vitals</title>
-        <meta name="description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
-        <meta name="keywords" content="Next.js, Arquitectura, SEO, Web Vitals, WebP" />
-        <meta name="google-site-verification" content="qGx7GLEI7RJRIMGEYu60C7nDVTYac2GHVPo4vfUQZ1Q" />
-      </Head>
+      <title>Plataforma de Optimización Avanzada | Core Web Vitals</title>
+      <meta name="description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
+      <meta name="keywords" content="Next.js, Arquitectura, SEO, Web Vitals, WebP" />
+      <meta name="google-site-verification" content="qGx7GLEI7RJRIMGEYu60C7nDVTYac2GHVPo4vfUQZ1Q" />
+      
+      {/* Etiquetas Open Graph exigidas por el profesor */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Plataforma de Optimización Avanzada | Core Web Vitals" />
+      <meta property="og:description" content="Implementación práctica de Next.js, carga asíncrona avanzada, compresión WebP y sitemaps dinámicos." />
+      <meta property="og:url" content="https://mi-proyecto-seo-maxi.onrender.com/" />
+      <meta property="og:image" content="https://mi-proyecto-seo-maxi.onrender.com/images/seo-image.png" />
+    </Head>
 
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <nav className="navbar">
