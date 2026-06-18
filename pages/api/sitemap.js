@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   // Rutas maestras fijas de la plataforma
   const staticUrls = ["/", "/blog", "/contacto"];
 
-  // Formateo de slugs dinámicos
+  // Formateo de slugs dinámiCS
   const dynamicUrls = postsFromCMS.map(post => `/blog/${post.slug}`);
 
   // Consolidación de matriz global de rastreo
