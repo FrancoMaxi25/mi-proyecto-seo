@@ -1,6 +1,6 @@
 const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
 
-export async function getServerSideProps({ res }) {
+export default async function handler(req, res) {
   const postsFromCMS = [
     { slug: "introduccion-a-nextjs-y-ssr" },
     { slug: "guia-de-seo-avanzado-para-desarrolladores" },
@@ -19,7 +19,4 @@ export async function getServerSideProps({ res }) {
   res.setHeader("Content-Type", "text/xml");
   res.write(sitemap);
   res.end();
-  return { props: {} };
 }
-
-export default function Sitemap() { return null; }
