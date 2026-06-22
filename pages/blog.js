@@ -1,30 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 
-const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
-
-export async function getServerSideProps({ req, res }) {
-  const userAgent = req.headers["user-agent"] || "";
-  const urlPath = req.url || "";
-
-  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot")) {
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${BASE_URL}/blog</loc>
-  </url>
-</urlset>`;
-
-    res.setHeader("Content-Type", "text/xml");
-    res.write(sitemap);
-    res.end();
-
-    return { props: {} };
-  }
-
-  return { props: {} };
-}
-
 export default function Blog() {
   const articulosSimulados = [
     { title: "Introducción a Next.js y SSR", date: "Junio 15, 2026", desc: "Conceptos clave del Server-Side Rendering y cómo cambia las reglas del SEO moderno.", tag: "Arquitectura" },

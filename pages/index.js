@@ -3,31 +3,6 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const BASE_URL = "https://mi-proyecto-seo-maxi.onrender.com";
-
-export async function getServerSideProps({ req, res }) {
-  const userAgent = req.headers["user-agent"] || "";
-  const urlPath = req.url || "";
-
-  // Solo intercepta si se pide explícitamente la palabra sitemap o viene el bot oficial de Google
-  if (urlPath.includes("sitemap") || userAgent.includes("Googlebot")) {
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${BASE_URL}/</loc>
-  </url>
-</urlset>`;
-
-    res.setHeader("Content-Type", "text/xml");
-    res.write(sitemap);
-    res.end();
-
-    return { props: {} };
-  }
-
-  return { props: {} };
-}
-
 const DynamicComponent = dynamic(() => import("../components/LargeComponent"), { 
   ssr: false,
   loading: () => <p style={{ color: 'var(--muted-text)', padding: '20px' }}>Cargando módulo dinámico...</p>
