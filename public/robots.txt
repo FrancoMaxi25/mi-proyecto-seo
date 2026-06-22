@@ -1,6 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Aquí le indicamos a Google la ruta exacta de la API que creamos
-Sitemap: https://mi-proyecto-seo.onrender.com/api/sitemap
+Sitemap: https://mi-proyecto-seo-maxi.onrender.com/sitemap-home.xml
+Sitemap: https://mi-proyecto-seo-maxi.onrender.com/sitemap-blog.xml
+Sitemap: https://mi-proyecto-seo-maxi.onrender.com/sitemap-contacto.xml
