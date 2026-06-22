@@ -1,18 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   async rewrites() {
     return [
       {
-        source: '/blog-xml',          // La palabra limpia que pondrás en Google
-        destination: '/sitemap-blog.xml', // El archivo real que va a leer
+        source: '/blog-xml',
+        destination: '/sitemap-blog.xml',
       },
       {
-        source: '/contacto-xml',      // La palabra limpia para contacto
+        source: '/contacto-xml',
         destination: '/sitemap-contacto.xml',
       },
     ];
   },
 };
-
-module.exports = nextConfig;
